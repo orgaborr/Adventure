@@ -12,7 +12,7 @@ public class Main {
 		locations.put(1, new Location(1, "You are standing at the end of a road before a small brick building"));
 		locations.put(2, new Location(2, "You are at the top of a hill"));
 		locations.put(3, new Location(3, "You are inside a building, a well house for a small spring"));
-		locations.put(4, new Location(4, "You are i na valley beside a stream"));
+		locations.put(4, new Location(4, "You are in a valley beside a stream"));
 		locations.put(5, new Location(5, "You are in the forest"));
 		
 		locations.get(1).addExit("W", 2);
@@ -40,8 +40,8 @@ public class Main {
 		while(true) {
 			//notice that locations' elements have access to the classes methods inside
 			System.out.println(locations.get(loc).getDescription()); //getDescription returns a String
-			if(loc == 0) {
-				break;
+			if(loc == 0) { 
+				break; //our quit command
 			}
 			
 			Map<String, Integer> exits = locations.get(loc).getExits();
@@ -51,14 +51,23 @@ public class Main {
 			}
 			System.out.println();
 			
-			String direction = sc.nextLine().toUpperCase(); //makes sure the direction's characters will match
 			
-			if(exits.containsKey(direction)) {
-				loc = exits.get(direction);
+			String input = sc.nextLine().toUpperCase(); //makes sure the direction's characters are upper case
+			String[] inputArray = input.split(" "); //turns input into an array
+			
+//			for(String direction : inputArray) {
+//				System.out.println(direction);
+//			}
+
+			for(String direction : inputArray) {
 				
-			} else {
-				System.out.println("You can not go in that direction");
+				if(exits.containsKey(direction)) {
+					loc = exits.get(direction);
+					break;
+				}
+
 			}
+			System.out.println("You can not go in that direction");
 		}
 		
 		sc.close();

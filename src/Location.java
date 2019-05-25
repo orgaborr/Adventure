@@ -9,7 +9,7 @@ public class Location {
 	public Location(int locationID, String description) {
 		this.locationID = locationID;
 		this.description = description;
-		this.exits = new HashMap<String, Integer>();
+		this.exits = new HashMap<String, Integer>(); //String: direction, Int: corresponding location
 		this.exits.put("Q", 0);
 	}
 	
