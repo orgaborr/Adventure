@@ -19,21 +19,16 @@ public class Main {
 		locations.get(1).addExit("E", 3);
 		locations.get(1).addExit("S", 4);
 		locations.get(1).addExit("N", 5);
-//		locations.get(1).addExit("Q", 0);
 		
 		locations.get(2).addExit("N", 5);
-//		locations.get(2).addExit("Q", 0);
 		
 		locations.get(3).addExit("W", 1);
-//		locations.get(3).addExit("Q", 0);
 		
 		locations.get(4).addExit("N", 1);
 		locations.get(4).addExit("W", 2);
-//		locations.get(1).addExit("Q", 0);
 		
 		locations.get(5).addExit("S", 1);
 		locations.get(5).addExit("W", 2);
-//		locations.get(5).addExit("Q", 0);
 		
 		
 		int loc = 1; //loc is going to be the key in the Map
@@ -63,12 +58,7 @@ public class Main {
 			String input = sc.nextLine().toUpperCase(); //makes sure the direction's characters are upper case
 			String[] inputArray = input.split(" "); //turns input into an array
 			
-//			for(String direction : inputArray) {
-//				System.out.println(direction);
-//			}
-
 			for(String direction : inputArray) {
-//				System.out.println(direction);
 				String shortD = shortDirection(direction);
 				if(exits.containsKey(shortD)) {
 					loc = exits.get(shortD);
