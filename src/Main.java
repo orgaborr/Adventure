@@ -72,9 +72,9 @@ public class Main {
 				String shortD = shortDirection(direction);
 				if(exits.containsKey(shortD)) {
 					loc = exits.get(shortD);
+					flag = true; //signals an exit is found
 					break;
 				}
-				flag = true; //signals an exit is found
 			}
 			if(!flag) {
 				System.out.println("You can not go in that direction");
