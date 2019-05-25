@@ -36,17 +36,28 @@ public class Main {
 		locations.get(5).addExit("Q", 0);
 		
 		
-		int loc = 1; //loc is going to the the key in the Map
+		int loc = 1; //loc is going to be the key in the Map
 		while(true) {
+			//notice that locations' elements have access to the classes method getDescription inside
 			System.out.println(locations.get(loc).getDescription()); //getDescription returns a String
 			if(loc == 0) {
 				break;
 			}
 			
-			loc = sc.nextInt();
-			sc.nextLine();
-			if(!locations.containsKey(loc)) {
-				System.out.println("Yo ucan not go in that direction");
+			Map<String, Integer> exits = locations.get(loc).getExits();
+			System.out.print("Available exits are ");
+			for(String exit: exits.keySet()) { //we have to specify it is the keySet we are looping through
+				System.out.print(exit + ", ");
+			}
+			System.out.println();
+			
+			String direction = sc.nextLine().toUpperCase(); //makes sure the direction's characters will match
+			
+			if(exits.containsKey(direction)) {
+				loc = exits.get(direction);
+				
+			} else {
+				System.out.println("You can not go in that direction");
 			}
 		}
 		
