@@ -69,8 +69,9 @@ public class Main {
 
 			for(String direction : inputArray) {
 //				System.out.println(direction);
-				if(exits.containsKey(direction)) {
-					loc = exits.get(direction);
+				String shortD = shortDirection(direction);
+				if(exits.containsKey(shortD)) {
+					loc = exits.get(shortD);
 					break;
 				}
 				flag = true; //signals an exit is found
@@ -82,6 +83,27 @@ public class Main {
 		}
 		
 		sc.close();
+	}
+	
+	//changes a direction's name into its initial
+	private static String shortDirection(String direction) {
+		if(direction.equals("NORTH")) {
+			return "N";
+		}
+		if(direction.equals("SOUTH")) {
+			return "S";
+		}
+		if(direction.equals("EAST")) {
+			return "E";
+		}
+		if(direction.equals("WEST")) {
+			return "W";
+		}
+		if(direction.equals("QUIT")) {
+			return "Q";
+		}
+		
+		return direction;
 	}
 
 }
