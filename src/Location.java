@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class Location {
@@ -8,6 +9,24 @@ public class Location {
 	public Location(int locationID, String description) {
 		this.locationID = locationID;
 		this.description = description;
+		this.exits = new HashMap<String, Integer>();
+	}
+	
+	public void addExit(String direction, int location) {
+		exits.put(direction, location);
+	}
+
+	public int getLocationID() {
+		return locationID;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public Map<String, Integer> getExits() {
+		return new HashMap<String, Integer>(exits); //returns a COPY of the hash map, so if something
+													//changes it, it won't change the actual map
 	}
 	
 	
