@@ -39,6 +39,7 @@ public class Main {
 		int loc = 1; //loc is going to be the key in the Map
 		while(true) {
 			boolean flag = false; //turns true if an exit is found
+			
 			//notice that locations' elements have access to the classes methods inside
 			System.out.println(locations.get(loc).getDescription()); //getDescription returns a String
 			if(loc == 0) { 
@@ -47,8 +48,14 @@ public class Main {
 			
 			Map<String, Integer> exits = locations.get(loc).getExits();
 			System.out.print("Available exits are ");
-			for(String exit: exits.keySet()) { //we have to specify it is the keySet we are looping through
-				System.out.print(exit + ", ");
+			
+			int commaCount = 0;
+			for(String exit: exits.keySet()) { //we specify it is the keySet of the HashMap we are looping through
+				System.out.print(exit);
+				if(commaCount < exits.size()-1) {
+					System.out.print(", ");
+					commaCount++;
+				}
 			}
 			System.out.println();
 			
