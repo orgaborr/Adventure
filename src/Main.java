@@ -38,6 +38,7 @@ public class Main {
 		
 		int loc = 1; //loc is going to be the key in the Map
 		while(true) {
+			boolean flag = false; //turns true if an exit is found
 			//notice that locations' elements have access to the classes methods inside
 			System.out.println(locations.get(loc).getDescription()); //getDescription returns a String
 			if(loc == 0) { 
@@ -60,14 +61,17 @@ public class Main {
 //			}
 
 			for(String direction : inputArray) {
-				
+//				System.out.println(direction);
 				if(exits.containsKey(direction)) {
 					loc = exits.get(direction);
 					break;
 				}
-
+				flag = true; //signals an exit is found
 			}
-			System.out.println("You can not go in that direction");
+			if(!flag) {
+				System.out.println("You can not go in that direction");
+			}
+			
 		}
 		
 		sc.close();
