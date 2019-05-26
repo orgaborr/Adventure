@@ -9,7 +9,11 @@ public class Location {
 	public Location(int locationID, String description, Map<String, Integer> exits) {
 		this.locationID = locationID;
 		this.description = description;
-		this.exits = new HashMap<String, Integer>(exits); //once the instance is created, can not be changed
+		if(exits != null) { //null passed in would crash the program
+			this.exits = new HashMap<String, Integer>(exits);
+		} else {
+			this.exits = new HashMap<String, Integer>();
+		}
 		this.exits.put("Q", 0);
 	}
 	
