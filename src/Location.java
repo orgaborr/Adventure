@@ -9,7 +9,7 @@ public class Location {
 	public Location(int locationID, String description, Map<String, Integer> exits) {
 		this.locationID = locationID;
 		this.description = description;
-		this.exits = exits;
+		this.exits = new HashMap<String, Integer>(exits); //once the instance is created, can not be changed
 		this.exits.put("Q", 0);
 	}
 	
