@@ -5,3 +5,5 @@ The program is written following and building on the lecture of Tim Buchalka on 
 
 The game enables the player to go N, S, W and E, or quit.
 You may type in the console the initials or full words, the program recognises directions.
+
+Location class has been made immutable.
